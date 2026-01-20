@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Mock Interview</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container feature-card">
+
+    <h1>AI Mock Interview</h1>
+
+    <p class="subtitle">
+        Career: <strong>{{ career }}</strong>
+    </p>
+
+    <img src="{{ url_for('static', filename='images/interview.png') }}"
+         class="feature-img"
+         alt="Mock Interview">
+
+    <p style="font-size:18px;">
+        <strong>Question {{ q_index + 1 }}:</strong> {{ question }}
+    </p>
+
+    <!-- ANSWER FORM -->
+    <form method="post"
+          action="/mock-interview?career={{ career }}&q={{ q_index }}">
+
+        <textarea name="answer"
+                  rows="5"
+                  required
+                  placeholder="Type your answer here..."
+                  style="width:100%; padding:12px; border-radius:10px;"></textarea>
+
+        <div class="button-group">
+            <button type="submit">Submit Answer</button>
+
+            <a href="/advanced-features">
+                <button type="button">Back</button>
+            </a>
+        </div>
+    </form>
+
+    <!-- VIEW FEEDBACK BUTTON -->
+    {% if answered and not show_feedback %}
+        <div class="button-group">
+            <a href="/mock-interview?career={{ career }}&q={{ q_index }}&feedback=true">
+                <button type="button">View Feedback</button>
+            </a>
+        </div>
+    {% endif %}
+
+    <!-- FEEDBACK DISPLAY -->
+    {% if show_feedback %}
+        <p class="highlight">{{ feedback }}</p>
+
+        {% if next_q is not none %}
+            <a href="/mock-interview?career={{ career }}&q={{ next_q }}">
+                <button style="margin-top:10px;">Next Question</button>
+            </a>
+        {% else %}
+            <p class="highlight">🎉 Interview Completed!</p>
+        {% endif %}
+    {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume ATS Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container feature-card">
+
+    <h1>Resume ATS Score</h1>
+
+    <img src="{{ url_for('static', filename='images/resume.png') }}"
+         class="feature-img">
+
+    <p class="highlight">ATS Score: {{ score }}%</p>
+
+    <h2>Matched Skills</h2>
+    <ul>
+        {% for m in matched %}
+        <li>{{ m }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Missing Skills</h2>
+    <ul>
+        {% for m in missing %}
+        <li>{{ m }}</li>
+        {% endfor %}
+    </ul>
+
+    <center>
+        <a href="/resume-ats">
+            <button>Try Again</button>
+        </a>
+    </center>
+
+</div>
+
+</body>
+</html>

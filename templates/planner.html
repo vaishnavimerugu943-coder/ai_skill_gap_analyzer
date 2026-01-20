@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Growth Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Career Growth Planner</h1>
+    <p class="subtitle">Career: <strong>{{ career }}</strong> | Level: <strong>{{ level }}</strong></p>
+
+    <img src="{{ url_for('static', filename='images/planner.png') }}" class="page-image">
+
+    <!-- Job Readiness -->
+    <h2>Job Readiness Score</h2>
+    <p class="highlight">{{ job_readiness }}%</p>
+
+    <!-- Skills -->
+    <h2>Skills to Focus On</h2>
+    <ul>
+        {% for skill in skills %}
+            <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Projects -->
+    <h2>Recommended Projects</h2>
+    <ul>
+        {% for project in projects %}
+            <li>{{ project }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Courses -->
+    <h2>Recommended Courses</h2>
+    <ul>
+        {% for course in courses %}
+            <li>{{ course }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Resume Tips -->
+    <h2>Resume & Portfolio Tips</h2>
+    <ul>
+        <li>Highlight projects related to {{ career }}</li>
+        <li>Showcase GitHub and LinkedIn</li>
+        <li>Add certifications and internships</li>
+    </ul>
+
+    <div class="button-group">
+        <a href="/weekly-plan?career={{ career }}&level={{ level }}">
+            <button>View Personalized Weekly Study Plan</button>
+        </a>
+
+        <br><br>
+
+        <a href="/dashboard">
+            <button>Back to Dashboard</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Skill Gap Analyzer & Advanced Career Growth Planner</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>AI Skill Gap Analyzer & Advanced Career Growth Planner</h1>
+    <p class="subtitle">Plan your skills. Shape your future with AI.</p>
+
+    <!-- Home Image -->
+    <img src="{{ url_for('static', filename='images/ai_home.png') }}"
+         class="page-image"
+         alt="AI Career Image">
+
+    <!-- Form -->
+    <form action="/assessment" method="post">
+
+        <label><strong>Select Your Career Goal:</strong></label>
+        <select name="career" required>
+            <option value="">-- Select Career --</option>
+            <option value="AI Engineer">AI Engineer</option>
+            <option value="Data Analyst">Data Analyst</option>
+            <option value="Full Stack Developer">Full Stack Developer</option>
+        </select>
+
+        <br><br>
+
+        <label><strong>Select Your Current Skills:</strong></label>
+        <label><input type="checkbox" name="skills" value="Python"> Python</label>
+        <label><input type="checkbox" name="skills" value="Machine Learning"> Machine Learning</label>
+        <label><input type="checkbox" name="skills" value="Data Analysis"> Data Analysis</label>
+        <label><input type="checkbox" name="skills" value="Web Development"> Web Development</label>
+
+        <br><br>
+
+        <center>
+            <button type="submit">Start Skill Assessment</button>
+        </center>
+
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personalized Weekly Study Plan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Personalized Weekly Study Plan</h1>
+    <p class="subtitle">Career: <b>{{ career }}</b> | Level: <b>{{ level }}</b></p>
+
+    <img src="{{ url_for('static', filename='images/progress.png') }}" class="page-image">
+
+    <table border="1" width="100%" cellpadding="12">
+        <tr>
+            <th>Day</th>
+            <th>Study Plan</th>
+        </tr>
+
+        {% for day, task in plan.items() %}
+        <tr>
+            <td>{{ day }}</td>
+            <td>{{ task }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="button-group">
+        <a href="/planner?career={{ career }}&level={{ level }}">
+            <button>Back to Career Planner</button>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

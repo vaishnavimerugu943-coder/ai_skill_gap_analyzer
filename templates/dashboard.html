@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Skill Gap Analyzer Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        .gap-card {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .gap-label {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .bar-container {
+            background: #ddd;
+            border-radius: 20px;
+            height: 22px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: right;
+            padding-right: 8px;
+            line-height: 22px;
+        }
+
+        .high-gap {
+            width: 80%;
+            background: #e74c3c;
+        }
+
+        .medium-gap {
+            width: 55%;
+            background: #f39c12;
+        }
+
+        .low-gap {
+            width: 30%;
+            background: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>AI Skill Gap Analyzer Dashboard</h1>
+    <p class="subtitle">
+        Career Selected: <strong>{{ career }}</strong>
+    </p>
+
+    <img src="{{ url_for('static', filename='images/dashboard.png') }}"
+         class="page-image"
+         alt="AI Dashboard">
+
+    <!-- Result -->
+    <h2>Your Assessment Result</h2>
+    <p><strong>Score:</strong> {{ score }} / {{ total }}</p>
+    <p><strong>Accuracy:</strong> {{ percentage }}%</p>
+    <p><strong>Skill Level:</strong>
+        <span style="color:#5f2c82; font-weight:bold;">
+            {{ level }}
+        </span>
+    </p>
+
+    <hr>
+
+    <!-- Skill Gap Visualization -->
+    <h2>Skill Gap Analysis</h2>
+
+    {% if weak_skills %}
+        {% for skill in weak_skills %}
+        <div class="gap-card">
+            <div class="gap-label">{{ skill }}</div>
+
+            <div class="bar-container">
+                {% if level == "Beginner" %}
+                    <div class="bar-fill high-gap">80%</div>
+                {% elif level == "Intermediate" %}
+                    <div class="bar-fill medium-gap">55%</div>
+                {% else %}
+                    <div class="bar-fill low-gap">30%</div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="color:green; font-weight:bold;">
+            🎉 No major skill gaps detected.
+        </p>
+    {% endif %}
+
+    <hr>
+
+
+<center>
+<div class="button-group">
+    <a href="/planner?career={{ career }}&level={{ level }}&percentage={{ percentage }}">
+        <button>View Career Growth Planner</button>
+    </a>
+
+    <a href="/advanced-features?career={{ career }}&level={{ level }}">
+        <button>Advanced Features</button>
+    </a>
+</div>
+    
+</center>
+
+<br>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skill Assessment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Skill Assessment</h1>
+    <p class="subtitle">
+        Career Selected: <strong>{{ career }}</strong>
+    </p>
+
+    <img src="{{ url_for('static', filename='images/quiz.png') }}"
+         class="page-image"
+         alt="Skill Assessment">
+
+    <form action="/dashboard" method="post">
+
+        <input type="hidden" name="career" value="{{ career }}">
+
+        {% for key, q in questions.items() %}
+            <h3>{{ q[0] }}</h3>
+
+            <label>
+                <input type="radio" name="{{ key }}" value="1" required>
+                {{ q[1] }}
+            </label><br>
+
+            <label>
+                <input type="radio" name="{{ key }}" value="0">
+                {{ q[2] }}
+            </label>
+
+            <br><br>
+        {% endfor %}
+
+        <center>
+            <button type="submit">Submit Assessment</button>
+        </center>
+
+    </form>
+
+</div>
+
+</body>
+</html>

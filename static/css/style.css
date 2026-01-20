@@ -1,0 +1,126 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Body Background */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #5f2c82, #49a09d);
+    padding: 40px 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 30px;
+    margin: auto;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #5f2c82;
+}
+
+.subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.page-image {
+    display: block;
+    max-width: 420px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    color: #5f2c82;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #5f2c82;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #49a09d;
+}
+
+/* Form Elements */
+select, input[type="checkbox"] {
+    margin: 10px 0;
+}
+
+label {
+    display: block;
+    margin: 6px 0;
+    color: #333;
+}
+
+/* Image Styling */
+.page-image {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 20px auto;
+}
+.feature-card {
+    background: linear-gradient(135deg, #5f2c82, #49a09d);
+    color: white;
+    padding: 25px;
+    border-radius: 16px;
+    margin-top: 20px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.feature-card h1,
+.feature-card h2,
+.feature-card p {
+    color: white;
+}
+
+.feature-img {
+    max-width: 220px;
+    display: block;
+    margin: 15px auto;
+}
+
+.highlight {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffeaa7;
+    text-align: center;
+}
+/* Button group for proper spacing (Mock Interview, others) */
+.button-group {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}

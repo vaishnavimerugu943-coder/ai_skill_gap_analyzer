@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume ATS Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container feature-card">
+
+    <h1>Resume ATS Score Analyzer</h1>
+    <p class="subtitle">
+        Paste your resume text to check ATS compatibility
+    </p>
+
+    <!-- Resume Image -->
+    <img src="{{ url_for('static', filename='images/resume.png') }}"
+         class="feature-img"
+         alt="Resume Analysis">
+
+    <!-- Resume Form -->
+    <form method="post" action="/resume-ats-result">
+
+        <textarea name="resume"
+                  rows="10"
+                  required
+                  placeholder="Paste your resume content here..."
+                  style="width:100%; padding:12px; border-radius:10px;"></textarea>
+
+        <br><br>
+
+        <center>
+            <button type="submit">Analyze Resume</button>
+        </center>
+    </form>
+
+    <br>
+
+    <center>
+        <a href="/advanced-features">
+            <button>Back</button>
+        </a>
+    </center>
+
+</div>
+
+</body>
+</html>
