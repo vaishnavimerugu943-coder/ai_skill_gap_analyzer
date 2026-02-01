@@ -1,4 +1,6 @@
 # 🚀 AI Skill Gap Analyzer & Advanced Career Growth Planner
+## Live Demo
+https://ai-skill-gap-analyzer.onrender.com/
 
 <p align="center">
   <b>An AI-Driven System for Skill Gap Detection and Personalized Career Planning</b>
